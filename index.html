@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        font-family: "Cascadia Code SemiBold", monospace;
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    
+    #text {
+        color: darkgray;
+        font-size: 24px;
+        margin-bottom: 20px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        color: white;
+        background-color: darkgray;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    #discord-button {
+    background-color: #24292E;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+#discord-button:hover {
+    background-color: wheat; /* Utilisez le nom de couleur "wheat" */
+    transform: scale(1.1);
+}
+
+#github-button {
+    background-color: #24292E;
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+#github-button:hover {
+    background-color: wheat; /* Utilisez le nom de couleur "wheat" */
+    transform: scale(1.1);
+}
+
+
+    
+    
+    #logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+        <div id="buttons">
+            <a href="https://discord.com/" target="_blank" class="button" id="discord-button">Discord</a>
+            <img id="logo" src="./src/logo.png" alt="Logo" />
+            <a href="https://github.com/" target="_blank" class="button" id="github-button">GitHub</a>
+        </div>
+    
+        <div id="text" contenteditable="true">Écrivez ici</div>
+    </div>
+
+    <script>
+        var textElement = document.getElementById("text");
+        
+        textElement.addEventListener("input", function() {
+            textElement.classList.remove("white");
+            
+            if (textElement.innerText === "") {
+                textElement.classList.add("white");
+                textElement.innerText = "Écrivez ici..";
+            }
+        });
+
+        textElement.addEventListener("keydown", function(event) {
+            if (textElement.classList.contains("white")) {
+                textElement.classList.remove("white");
+                textElement.innerText = "";
+            }
+        });
+    </script>
+</body>
+</html>
